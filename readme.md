@@ -1,6 +1,7 @@
-# Antworten zu Übungsblatt 1
+# Antworten zu den Übungsblättern
 
-## Aufgabe 1.1
+## Blatt 1
+### Aufgabe 1.1
 
 Als Entwurfsmuster für diese Aufgabe eignet sich das "Abstract Factory"-Pattern am besten.
 Denn durch das Translator-Interface können die Vorgaben an einen Translator vorgegeben werden, die tatsächliche
@@ -11,7 +12,7 @@ Die tatsächliche Implementierung muss aber natürlich bei jedem Translator für
 Man könnte den Source Code des Interfaces durch das Werfen einer Exception bei den Methoden erweitern, was
 potenziell eine übersichtlichere und einfache Fehlerbehandlung ermöglicht.
 
-## Aufgabe 1.3
+### Aufgabe 1.3
 
 Die Vorteile einer separaten Testklasse sind zum einen eine bessere Lesbarkeit und Übersicht, zum anderen
 lassen sich die Tests schnell und einfach anpassen oder ergänzen. Des Weiteren beeinflussen Fehler in der
