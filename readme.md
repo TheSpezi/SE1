@@ -1,4 +1,4 @@
-~~# Antworten zu den Übungsblättern
+# Antworten zu den Übungsblättern
 
 ## Blatt 1
 ### Aufgabe 1.1
