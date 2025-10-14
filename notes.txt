@@ -1,0 +1,10 @@
+//Notes für alles mögliche\\
+
+
+
+
+List<String> t = new ArrayList<>();
+
+Zustandsbasiertes Testen - Zustandsablauf festlegen
+
+UML Aktivitätsdiagramm - glasklar

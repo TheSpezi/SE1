@@ -8,6 +8,6 @@ public interface Member {
      * Die ID dient als Primärschlüssel zur Unterscheidung aller Member-Objekte.
      *
      */
-    
+
     public Integer getID();
 }

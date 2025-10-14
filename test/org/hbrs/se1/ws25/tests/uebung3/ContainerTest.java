@@ -1,7 +1,5 @@
 package org.hbrs.se1.ws25.tests.uebung3;
 
-import org.hbrs.se1.ws25.exercises.uebung2.Member;
-import org.hbrs.se1.ws25.exercises.uebung3.persistence.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

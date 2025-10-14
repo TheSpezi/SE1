@@ -1,4 +1,4 @@
-# Antworten zu den Übungsblättern
+~~# Antworten zu den Übungsblättern
 
 ## Blatt 1
 ### Aufgabe 1.1
@@ -26,8 +26,13 @@ getrennt werden.
 
 Die Client-Klasse erzeugt den GermanTranslator nicht direkt, sondern greift nur über das Translator Interface
 auf die Translator-Implementierungen zu. Bedeutet die Client-Klasse ist abhängig von externen Objekten die erst
-zur Laufzeit bereitgestellt werden. Da ist es sinnvoller, den Translator direkt zu testen.
+zur Laufzeit bereitgestellt werden. Da ist es sinnvoller, den Translator direkt zu testen.~~
 
 
-
+## Blatt 2 
+### Aufgabe 2 FA3
+Der frei wählbare String als Fehlerbehandlung eignet sich nur bedingt. Zum einen kann der Fehler leichter ignoriert
+werden, zum anderen wird so keine eindeutige Fehlerbehandlung garantiert. Würde stattdessen eine Exception geworfen
+werden, kann eine feste Fehlerbehandlung implementiert werden, die mit diesem Fall umgeht und den Nutzer im Zweifel
+konsequent über den Fehler informiert.
 
