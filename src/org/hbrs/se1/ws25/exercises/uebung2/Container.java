@@ -23,7 +23,7 @@ public class Container {
     public String deleteMember(int id) {
 
         for (Member m : list) {
-            if (m.getID() == id) {
+            if (m.getID().equals(id)) {
                 list.remove(m);
                 return null;
             }
