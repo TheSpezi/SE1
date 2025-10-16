@@ -1,6 +1,7 @@
 # Antworten zu den Übungsblättern
 
 ## Blatt 1
+
 ### Aufgabe 1.1
 
 Als Entwurfsmuster für diese Aufgabe eignet sich das "Abstract Factory"-Pattern am besten.
@@ -21,16 +22,17 @@ Testklasse nicht den eigentlichen Source Code und die Dokumentation des Tests is
 Äquivalenzklassen fassen die zahlreichen Eingabemöglichkeiten/-werte in Gruppen zusammen, sodass aus
 jeder Gruppe meist nur ein Repräsentant getestet werden muss und dessen Ergebnis dann für alle anderen
 Gruppen Elemente gilt. Eine Ausnahme hier sind Grenzwerte, diese Werte können öfters in einer Äquivalenzklasse
-vorkommen, müssen aber explizit getestet werden. Außerdem können durch Klassen gültige Eingaben und ungültigen klar 
-getrennt werden.   
+vorkommen, müssen aber explizit getestet werden. Außerdem können durch Klassen gültige Eingaben und ungültigen klar
+getrennt werden.
 
 Die Client-Klasse erzeugt den GermanTranslator nicht direkt, sondern greift nur über das Translator Interface
 auf die Translator-Implementierungen zu. Bedeutet die Client-Klasse ist abhängig von externen Objekten die erst
 zur Laufzeit bereitgestellt werden. Da ist es sinnvoller, den Translator direkt zu testen.~~
 
+## Blatt 2
 
-## Blatt 2 
 ### Aufgabe 2 FA3
+
 Der frei wählbare String als Fehlerbehandlung eignet sich nur bedingt. Zum einen kann der Fehler leichter ignoriert
 werden, zum anderen wird so keine eindeutige Fehlerbehandlung garantiert. Würde stattdessen eine Exception geworfen
 werden, kann eine feste Fehlerbehandlung implementiert werden, die mit diesem Fall umgeht und den Nutzer im Zweifel

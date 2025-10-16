@@ -10,7 +10,7 @@ public class ConcreteMember implements Member {
     private int id;
 
     /*Konstruktor*/
-    public ConcreteMember(){
+    public ConcreteMember() {
         id = ID_Counter++;
     }
 
@@ -20,6 +20,6 @@ public class ConcreteMember implements Member {
 
     @Override
     public String toString() {
-        return "Member (ID = "+ this.id+")";
+        return "Member (ID = " + this.id + ")";
     }
 }

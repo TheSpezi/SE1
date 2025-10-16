@@ -20,19 +20,19 @@ public class ContainerTest {
 
     @Test
     @Order(1)
-    void leer(){
+    void leer() {
         assertEquals(0, c.size());
-        assertEquals("FEHLER: Kein Member mit der ID: " + m1.getID()+ " gefunden!", c.deleteMember(m1.getID()));
+        assertEquals("FEHLER: Kein Member mit der ID: " + m1.getID() + " gefunden!", c.deleteMember(m1.getID()));
 
     }
 
     @Test
     @Order(2)
-    void eins(){
+    void eins() {
         c.addMember(m1);
         assertEquals(1, c.size());
         assertThrows(ContainerException.class, () -> c.addMember(m1));
-        assertEquals(1,c.size());
+        assertEquals(1, c.size());
 
         //visuelle Kontrolle via dump
         c.dump();
@@ -57,22 +57,20 @@ public class ContainerTest {
 
     @Test
     @Order(4)
-    void delete_eins(){
+    void delete_eins() {
         c.deleteMember(m1.getID());
         assertEquals(1, c.size());
-        assertEquals("FEHLER: Kein Member mit der ID: " + m1.getID()+ " gefunden!", c.deleteMember(m1.getID()));
-        assertEquals(1,c.size());
+        assertEquals("FEHLER: Kein Member mit der ID: " + m1.getID() + " gefunden!", c.deleteMember(m1.getID()));
+        assertEquals(1, c.size());
     }
 
     @Test
     @Order(5)
-    void delete_zwei(){
+    void delete_zwei() {
         c.deleteMember(m2.getID());
-        assertEquals(0,c.size());
-        assertEquals("FEHLER: Kein Member mit der ID: " + m2.getID()+ " gefunden!", c.deleteMember(m2.getID()));
-        assertEquals(0,c.size());
-
-
+        assertEquals(0, c.size());
+        assertEquals("FEHLER: Kein Member mit der ID: " + m2.getID() + " gefunden!", c.deleteMember(m2.getID()));
+        assertEquals(0, c.size());
 
 
     }
