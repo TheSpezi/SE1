@@ -58,7 +58,7 @@ public class ContainerTest {
     @Test
     @Order(4)
     void delete_eins() {
-        c.deleteMember(m1.getID());
+        assertNull(c.deleteMember(m1.getID()));
         assertEquals(1, c.size());
         assertEquals("FEHLER: Kein Member mit der ID: " + m1.getID() + " gefunden!", c.deleteMember(m1.getID()));
         assertEquals(1, c.size());
@@ -67,7 +67,7 @@ public class ContainerTest {
     @Test
     @Order(5)
     void delete_zwei() {
-        c.deleteMember(m2.getID());
+        assertNull(c.deleteMember(m2.getID()));
         assertEquals(0, c.size());
         assertEquals("FEHLER: Kein Member mit der ID: " + m2.getID() + " gefunden!", c.deleteMember(m2.getID()));
         assertEquals(0, c.size());
