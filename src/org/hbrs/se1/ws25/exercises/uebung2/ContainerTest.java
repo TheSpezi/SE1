@@ -28,7 +28,7 @@ public class ContainerTest {
 
     @Test
     @Order(2)
-    void eins() {
+    void eins() throws ContainerException {
         c.addMember(m1);
         assertEquals(1, c.size());
         assertThrows(ContainerException.class, () -> c.addMember(m1));
@@ -43,7 +43,7 @@ public class ContainerTest {
 
     @Test
     @Order(3)
-    void zwei() {
+    void zwei() throws ContainerException {
         c.addMember(m2);
         assertEquals(2, c.size());
         assertThrows(ContainerException.class, () -> c.addMember(m2));
