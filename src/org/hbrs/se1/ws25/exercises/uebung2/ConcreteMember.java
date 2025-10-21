@@ -1,9 +1,18 @@
 package org.hbrs.se1.ws25.exercises.uebung2;
 
 
-public class ConcreteMember implements Member {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class ConcreteMember implements Member, Serializable
+
+{
 
     /*Klassenvariablen*/
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+
     private static int ID_Counter = 1;
 
     /*Instanzvariablen*/

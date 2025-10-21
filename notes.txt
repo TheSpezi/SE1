@@ -8,3 +8,12 @@ List<String> t = new ArrayList<>();
 Zustandsbasiertes Testen - Zustandsablauf festlegen
 
 UML Aktivitätsdiagramm - glasklar
+
+
+Single Design Pattern
+
+Konstruktor private + Klassenvariable + getInstance Methode + return INSTANCE //Singleton
+Persistent Speichern = nach dem Runterfahren immernoch da: Object Output Stream (oos) .ser + writeObject
+ObjectInputStream + FileInputStream
+Serializable
+geekforgeeks

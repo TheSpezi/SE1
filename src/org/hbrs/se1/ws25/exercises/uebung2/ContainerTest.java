@@ -35,7 +35,7 @@ public class ContainerTest {
         assertEquals(1, c.size());
 
         //visuelle Kontrolle via dump
-        c.dump();
+        //c.dump();
         System.out.println("Member (ID = " + m1.getID() + ")");
         System.out.println();
 
@@ -50,7 +50,7 @@ public class ContainerTest {
 
 
         //visuelle Kontrolle via dump
-        c.dump();
+        //c.dump();
         System.out.println("Member (ID = " + m1.getID() + ")\nMember (ID = " + m2.getID() + ")");
         System.out.println();
     }

@@ -1,11 +1,34 @@
 package org.hbrs.se1.ws25.exercises.uebung2;
 
+import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceException;
+import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategy;
+
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Container {
 
-    List<ConcreteMember> list = new ArrayList<>();
+    List<Member> list = new ArrayList<>();
+    private static Container instance = null;
+    private PersistenceStrategy<Member> strat;
+
+
+    /*Sigleton */
+    public static Container getInstance() {
+        if (instance == null) {
+            instance = new Container();
+            new Container();
+        }
+        return instance;
+    }
+
+    /* setzen der Persistenz-Strategie*/
+    public void setPersistence(PersistenceStrategy<Member> strategy) {
+        this.strat = strategy;
+    }
+
 
     /*Hinzufuegen eines Members*/
     public void addMember(ConcreteMember member) throws ContainerException {
@@ -32,12 +55,8 @@ public class Container {
     }
 
 
-    /*Ausgabe aller Member-Ids*/
-    public void dump() {
-
-        for (Member m : list) {
-            System.out.println(m);
-        }
+    public List<Member> getCurrentList() {
+        return list;
     }
 
     /*Anzahl der Member*/
@@ -45,5 +64,23 @@ public class Container {
         return this.list.size();
     }
 
+    /*speichern der Elemente*/
+    public void store() throws PersistenceException {
+        if (strat == null)
+            throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet, "Keine Persistenz-Strategie gesetzt!");
+        strat.save(list);
+    }
 
+    /*laden der gespeicherten Elemente*/
+    public void load() throws PersistenceException {
+        if (strat == null)
+            throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet, "Keine Persistenz-Strategie gesetzt!");
+        List<Member> tmp = strat.load();
+        this.list = tmp;
+    }
+
+    /*loeschen aller Members*/
+    public void deleteAllMembers(){
+        list.clear();
+    }
 }

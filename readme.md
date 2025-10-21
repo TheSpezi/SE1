@@ -38,3 +38,11 @@ werden, zum anderen wird so keine eindeutige Fehlerbehandlung garantiert. Würde
 werden, kann eine feste Fehlerbehandlung implementiert werden, die mit diesem Fall umgeht und den Nutzer im Zweifel
 konsequent über den Fehler informiert.
 
+
+## Blatt 3
+
+### Aufgabe 2 CR1
+Da nur eine Instanz des Container-Objektes erzeugt werden soll, ist hier das Design Pattern des Singleton relevant.
+
+### Aufgabe 2 CR3
+Hier wird das Strategy Pattern angewendet, welches flexibel zur Laufzeit ausgetauscht werden kann.
