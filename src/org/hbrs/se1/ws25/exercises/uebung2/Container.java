@@ -3,8 +3,6 @@ package org.hbrs.se1.ws25.exercises.uebung2;
 import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceException;
 import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategy;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,14 +67,14 @@ public class Container {
         if (strat == null)
             throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet, "Keine Persistenz-Strategie gesetzt!");
         strat.save(list);
+        System.out.println("Member erfolgreich abgespeichert.");
     }
 
     /*laden der gespeicherten Elemente*/
     public void load() throws PersistenceException {
         if (strat == null)
             throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet, "Keine Persistenz-Strategie gesetzt!");
-        List<Member> tmp = strat.load();
-        this.list = tmp;
+        this.list = strat.load(); //überschreiben der aktuellen Member durch die eingelesenden
     }
 
     /*loeschen aller Members*/
