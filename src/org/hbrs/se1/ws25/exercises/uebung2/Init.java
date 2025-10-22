@@ -11,8 +11,8 @@ public class Init {
     public static void initContainer() {
         Container container = Container.getInstance();
 
-        PersistenceStrategy<Member> p = new PersistenceStrategyStream<>();
-        container.setPersistence(p);
+        PersistenceStrategy<Member> ps = new PersistenceStrategyStream<>();
+        container.setPersistence(ps);
     }
 
 }
