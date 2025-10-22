@@ -1,6 +1,5 @@
 package org.hbrs.se1.ws25.exercises.uebung3.persistence;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
@@ -15,7 +14,7 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
     }
 
     @Override
-    /**
+    /*
      * Method for saving a list of Member-objects to a disk (HDD)
      * Look-up in Google for further help! Good source:
      * https://www.digitalocean.com/community/tutorials/objectoutputstream-java-write-object-file
@@ -36,7 +35,7 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
     }
 
     @Override
-    /**
+    /*
      * Method for loading a list of Member-objects from a disk (HDD)
      * Some coding examples come for free :-)
      * Take also a look at the import statements above ;-!
