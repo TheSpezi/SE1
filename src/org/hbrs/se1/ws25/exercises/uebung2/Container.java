@@ -74,11 +74,19 @@ public class Container {
     public void load() throws PersistenceException {
         if (strat == null)
             throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet, "Keine Persistenz-Strategie gesetzt!");
-        this.list = strat.load(); //überschreiben der aktuellen Member durch die eingelesenden
+        this.list = strat.load(); //überschreiben der aktuellen Member durch die eingelesenen
     }
 
     /*loeschen aller Members*/
     public void deleteAllMembers(){
         list.clear();
+    }
+
+    /*testet ob ein Member in der liste enthalten ist*/
+    public boolean contains(Member testMember){
+        for(Member m : list){
+            if(m.getID().equals(testMember.getID())) return true;
+        }
+        return false;
     }
 }
