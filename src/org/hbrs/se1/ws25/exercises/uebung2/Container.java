@@ -13,7 +13,7 @@ public class Container {
     private PersistenceStrategy<Member> strat;
 
 
-    /*Sigleton */
+    /*Singleton */
     public static Container getInstance() {
         if (instance == null) {
             instance = new Container();
