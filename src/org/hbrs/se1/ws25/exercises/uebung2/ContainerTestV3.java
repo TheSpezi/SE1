@@ -6,9 +6,6 @@ import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategyMongoD
 import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategyStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ContainerTestV3 {
@@ -21,31 +18,31 @@ public class ContainerTestV3 {
 
     }
 
-    @Test
+    @Test //Test auf nicht Implementierung
     void testMongoDBNotImplementedSolution() {
         container.setPersistence(new PersistenceStrategyMongoDB<Member>());
         PersistenceException e = assertThrows(PersistenceException.class, () -> container.store());
-        assertEquals(e.getMessage(), "MongoDB nicht implementiert!");
+        assertEquals("MongoDB nicht implementiert!", e.getMessage());
     }
 
-    @Test
+    @Test //Test auf keine festgelegte Persistenz-Strategie
     void testNoStrategySet() {
         container.setPersistence(null);
         PersistenceException e = assertThrows(PersistenceException.class, () -> container.store());
-        assertEquals(e.getMessage(), "Keine Persistenz-Strategie gesetzt!");
+        assertEquals("Keine Persistenz-Strategie gesetzt!", e.getMessage());
 
     }
 
-    @Test
+    @Test //Falsche Location fuer geschriebene Datein festlegen
     void testWrongLocationOfFile() {
         PersistenceStrategyStream<Member> ps = new PersistenceStrategyStream<>();
         ps.setLocation("/tmp");
         container.setPersistence(ps);
         PersistenceException e = assertThrows(PersistenceException.class, () -> container.store());
-        assertEquals(PersistenceException.ExceptionType.ConnectionNotAvailable, e.getExceptionTypeType());
+        assertEquals(PersistenceException.ExceptionType.WriteNotSuccessful, e.getExceptionTypeType());
     }
 
-    @Test
+    @Test //Ablauf Test
     void testStoreDeleteAndLoad() throws ContainerException, PersistenceException {
         container.deleteAllMembers();
         PersistenceStrategyStream<Member> ps = new PersistenceStrategyStream<>();
