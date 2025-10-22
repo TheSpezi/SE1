@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ContainerTest {
+public class ContainterStateTest {
 
     static Container c;
     static ConcreteMember m1;
