@@ -1,7 +1,6 @@
 package org.hbrs.se1.ws25.exercises.uebung2;
 
 import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceException;
-import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategy;
 import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategyMongoDB;
 import org.hbrs.se1.ws25.exercises.uebung3.persistence.PersistenceStrategyStream;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,12 +14,11 @@ public class ContainerTestV3 {
     @BeforeEach
     void init() {
         container = Container.getInstance();
-
     }
 
     @Test //Test auf nicht Implementierung
     void testMongoDBNotImplementedSolution() {
-        container.setPersistence(new PersistenceStrategyMongoDB<Member>());
+        container.setPersistence(new PersistenceStrategyMongoDB<>());
         PersistenceException e = assertThrows(PersistenceException.class, () -> container.store());
         assertEquals("MongoDB nicht implementiert!", e.getMessage());
     }
@@ -33,7 +31,7 @@ public class ContainerTestV3 {
 
     }
 
-    @Test //Falsche Location fuer geschriebene Datein festlegen
+    @Test //Falsche Location fuer geschriebene Dateien festlegen
     void testWrongLocationOfFile() {
         PersistenceStrategyStream<Member> ps = new PersistenceStrategyStream<>();
         ps.setLocation("/tmp");
@@ -52,12 +50,13 @@ public class ContainerTestV3 {
 
         ConcreteMember m1 = new ConcreteMember();
         container.addMember(m1);
-
+        assertTrue(container.contains(m1));
         assertEquals(1, container.size());
         container.store();
         container.deleteAllMembers();
         assertEquals(0, container.size());
         container.load();
+        assertTrue(container.contains(m1));
         assertEquals(1, container.size());
 
 
