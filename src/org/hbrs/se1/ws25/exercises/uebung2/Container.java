@@ -13,11 +13,14 @@ public class Container {
     private PersistenceStrategy<Member> strat;
 
 
+    /*privater Konstruktor*/
+    private Container(){
+    }
+
     /*Singleton */
     public static Container getInstance() {
         if (instance == null) {
             instance = new Container();
-            new Container();
         }
         return instance;
     }
