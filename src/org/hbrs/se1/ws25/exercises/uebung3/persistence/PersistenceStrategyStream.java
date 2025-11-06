@@ -1,4 +1,5 @@
 package org.hbrs.se1.ws25.exercises.uebung3.persistence;
+
 import java.io.*;
 import java.util.List;
 
@@ -20,14 +21,14 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      * https://www.digitalocean.com/community/tutorials/objectoutputstream-java-write-object-file
      * (Last Access: Oct, 13th 2025)
      */
-    public void save(List<E> member) throws PersistenceException  {
+    public void save(List<E> member) throws PersistenceException {
         try {
             FileOutputStream fos = new FileOutputStream(location);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(member);
-            oos.close();
+            oos.close(); //nicht optimal gelöst, siehe gute loesung unten, werden bei Exception nicht geschlossen!!!
             fos.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new PersistenceException(PersistenceException.ExceptionType.WriteNotSuccessful, e.getMessage());
         }
 
@@ -40,22 +41,20 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      * Some coding examples come for free :-)
      * Take also a look at the import statements above ;-!
      */
-    public List<E> load() throws PersistenceException  {
+    public List<E> load() throws PersistenceException {
 
-        try{
-            FileInputStream fis = new FileInputStream(location);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+        try (FileInputStream fis = new FileInputStream(location);
+             ObjectInputStream ois = new ObjectInputStream(fis)){ //obj werden immer geschlossen, auch bei Exception
+
             Object o = ois.readObject();
             List<E> newListe;
 
-            if(o instanceof  List<?>){
+            if (o instanceof List<?>) {
                 newListe = (List<E>) o;
                 return newListe;
             }
 
-            ois.close();
-            fis.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             throw new PersistenceException(PersistenceException.ExceptionType.ReadNotSuccessful, e.getMessage());
 
         }
