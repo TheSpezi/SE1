@@ -8,19 +8,22 @@ import java.util.List;
 
 public class Container {
 
+    /*Klassenvariablen*/
     List<Member> list = new ArrayList<>();
-    private static Container instance = null;
+    private static Container instance;
     private PersistenceStrategy<Member> strat;
 
 
     /*privater Konstruktor*/
-    private Container(){
+    private Container() {
     }
 
     /*Singleton */
     public static Container getInstance() {
-        if (instance == null) {
-            instance = new Container();
+        synchronized (instance) {        //synchronized = eine atomare funktion, thread-sicherheit / Kontextwechsel! Kann auch im Methodenkopf stehen
+            if (instance == null) {
+                instance = new Container();
+            }
         }
         return instance;
     }
@@ -81,14 +84,14 @@ public class Container {
     }
 
     /*loeschen aller Members*/
-    public void deleteAllMembers(){
+    public void deleteAllMembers() {
         list.clear();
     }
 
     /*testet ob ein Member in der liste enthalten ist*/
-    public boolean contains(Member testMember){
-        for(Member m : list){
-            if(m.getID().equals(testMember.getID())) return true;
+    public boolean contains(Member testMember) {
+        for (Member m : list) {
+            if (m.getID().equals(testMember.getID())) return true;
         }
         return false;
     }
