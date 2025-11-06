@@ -19,11 +19,22 @@ import java.util.stream.Collectors;
  * - Anpassen der Methodennamen
  *
  * ToDo: Wie bewerten Sie diese Strategie? Was ist ihre Strategie zur Wiederverwendung? (F1)
- *
+ * Kann man so machen, haette ich wahrscheinliche auch so gemacht
+ *Mach Container generic(hier nicht schoen)  oder via interface
  * Entwurfsentscheidung: Die wichtigsten Zuständigkeiten (responsibilities)
  * sind in einer Klasse, d.h. Container?
  * ToDo: Wie bewerten Sie diese Entscheidung? Was wäre ein sinnvolle Aufteilung (F2, F6)
- * 
+ * Persistenz-4.prototype;
+    public class UserStory {
+        // ToDo: Sind die Attribute der Klasse UserStory vollständig? Wie sieht es mit den
+        //  Sichtbarkeiten aus? (F4)
+Kram in eigene Klasse (God-Klasse -> Antipattern), eine Klasse sollte nur eine Aufgabe haben
+ * Text und Commandzeug in eine eigene Klasse
+ * Main in eigene Klasse
+ * Container soll sich wirklich nur mit Container sachen beschaeftigen
+ * Vlt die Userseite in eigenes Package und nicht alles durcheinander
+ * input Klasse / Output Klasse
+ *
  */
 
 public class Container {
@@ -35,7 +46,9 @@ public class Container {
 	// auf das einzige Container-Objekt abzuspeichern
 	// Diese Variante sei thread-safe, so hat Hr. P. es gehört... stimmt das?
 	// Todo: Bewertung Thread-Safeness (F1)
+    //ist thread safe, weil eager-Variante
 	// Todo: Bewertung Speicherbedarf (F1)
+    //Singleton wird direkt am Anfang erstellt, kann unoetig Speicher verschwenden
 	private static Container instance = new Container();
 	
 	// URL der Datei, in der die Objekte gespeichert werden 
@@ -53,7 +66,7 @@ public class Container {
 	 * Vorschriftsmäßiges Ueberschreiben des Konstruktors (private) gemaess Singleton-Pattern (oder?)
 	 *
 	 */
-	Container(){
+	Container(){ //muss private sein
 		liste = new ArrayList<UserStory>();
 	}
 	
@@ -63,10 +76,12 @@ public class Container {
 	 */
 	public static void main (String[] args) throws Exception {
 		// ToDo: Bewertung Exception-Handling (F3, F7)
+        //Warum ist die main überhaupt hier?
+        //Koennete man so machen, dass das ganze Programm nicht gleich beendet wird. Sondern dass man einfach
+        //eine Fehlermeldung bekommt.
 		Container con = Container.getInstance();
 		con.startEingabe(); 
 	}
-	
 	/*
 	 * Diese Methode realisiert eine Eingabe ueber einen Scanner
 	 * Alle Exceptions werden an den aufrufenden Context (hier: main) weitergegeben (throws)
@@ -77,6 +92,7 @@ public class Container {
 		
 		// Initialisierung des Eingabe-View
 		// ToDo: Funktionsweise des Scanners erklären (F3)
+        //wo Fehlermeldung bei falscher Eingabe
 		Scanner scanner = new Scanner( System.in );
 
 		while ( true ) {
@@ -106,7 +122,7 @@ public class Container {
 			if (  strings[0].equals("store")  ) {
 				// Beispiel-Code zum Anlegen und Speichern einer UserStory:
 				UserStory userStory = new UserStory();
-				userStory.setId( 22 );
+				userStory.setId( 22 ); //jedes Objekt hat die gleiche ID
 				this.addUserStory( userStory );
 				this.store();
 			}
@@ -122,6 +138,7 @@ public class Container {
 
 		// [Sortierung ausgelassen]
 		// Todo: Implementierung Sortierung (F4)
+        //sortier halt nach Prio oder es kann angegeben werden wonach sortiert werden soll
 
 
 
