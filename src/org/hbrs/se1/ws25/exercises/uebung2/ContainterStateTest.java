@@ -13,7 +13,7 @@ public class ContainterStateTest {
 
     @BeforeAll
     static void init() {
-        c = new Container();
+        c = Container.getInstance();
         m1 = new ConcreteMember();
         m2 = new ConcreteMember();
     }
