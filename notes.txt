@@ -1,8 +1,6 @@
 //Notes für alles mögliche\\
 
 
-
-
 List<String> t = new ArrayList<>();
 
 Zustandsbasiertes Testen - Zustandsablauf festlegen
@@ -17,3 +15,15 @@ Persistent Speichern = nach dem Runterfahren immernoch da: Object Output Stream 
 ObjectInputStream + FileInputStream
 Serializable
 geekforgeeks
+
+Übung4:
+2) Tool welches User Stories(Anforderungsbeschreibung) verwalten kann
+    CLI mit coolen Interface
+    dump mit Tablle
+    sc.nextLine()
+    System.in
+    input.split(" "); -> gibt Array
+    System.err.println -> Fehlermeldung
+    liste.sort(comperator);
+    eigenen comperator definieren
+    filtern mir l.stream , siehe Musterlösung 2
