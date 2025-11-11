@@ -1,13 +1,14 @@
 package org.hbrs.se1.ws25.exercises.uebung4.prototype;
 
     public class UserStory {
-        // ToDo: Sind die Attribute der Klasse UserStory vollständig? Wie sieht es mit den
+        // ToDo: Sind die Attribute der Klasse UserStory vollständig?
+        //  Wie sieht es mit den
         //  Sichtbarkeiten aus? (F4)
         //Wo eigentliche Story?
         //Warum alles oeffentlich?
         //wo serializasbefewhf?
 
-        String titel;
+        private String titel;
         int id = 0;
         double prio = 0.0;
         String project;
