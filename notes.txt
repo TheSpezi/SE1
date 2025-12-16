@@ -27,3 +27,17 @@ geekforgeeks
     liste.sort(comperator);
     eigenen comperator definieren
     filtern mir l.stream , siehe Musterlösung 2
+
+Übung5:
+    HashMap<Key, Value> Vaulue kann Object sein
+    map.put(K, V) gibt null zurück, wenn er nichts findet
+    map.get() Zugriff in O(1)
+    Command Interface( void execute() <- über map aufrufen, default void undo() default gibt standard implementierung vor)
+    Stack<Command> history = new Stack<>(); für die History
+    String... = beliebig viele Strings
+
+    Package Architektur
+    View = Zeigen Sachen ein
+    Model = Abspeichern
+    Controller = Anwendungslogik
+

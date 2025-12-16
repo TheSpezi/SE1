@@ -82,8 +82,6 @@ public class UserInput {
             System.out.print("Risiko: ");
             int risk = sc.nextInt();
 
-            sc.nextLine();  //remove line break
-
 
             UserStory us = new UserStory(title, acceptance, project, value, penalty, expense, risk);
             container.addUserStory(us);
@@ -91,13 +89,12 @@ public class UserInput {
 
         } catch (InputMismatchException e) {
             System.err.println("Bitte nur gueltige Zahlenwerte einsetzen!\nBitte User Story erneut eingeben");
-            sc.nextLine();//remove line break
         } catch (UserStoryException e) {
             System.err.println(e.getMessage() + "\nBitte User Story erneut eingeben.");
-            sc.nextLine(); //remove line break
         } catch (ContainerException e){
             System.err.println(e.getMsg());
-            sc.nextLine();
+        } finally{
+            sc.nextLine(); //remove line break
         }
 
 
