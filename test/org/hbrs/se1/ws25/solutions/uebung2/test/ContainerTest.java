@@ -14,8 +14,7 @@ class ContainerTest {
     @BeforeEach
     void setUp() {
         // Den Container anlegen
-        container = new Container();
-        Container container2 = new Container();
+        container =  new Container();
     }
 
     @Test
