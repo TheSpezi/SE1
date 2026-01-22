@@ -12,14 +12,13 @@ public class EigenerStack<E> extends Stack<E> {
 
     @Override
     public E push(E item) {
-        if(this.size() >= this.capacity) {
-            throw new RuntimeException("Stack ist voll!");
+        if (this.size() >= this.capacity) {
+            throw new IndexOutOfBoundsException("Stack ist voll!");
         }
 
         return super.push(item);
 
     }
-
 
 
 }

@@ -13,35 +13,37 @@ public class EigenerStackTest {
 
 
     @BeforeAll
-    static void init(){
+    static void init() {
         stack = new EigenerStack<Integer>(4);
     }
 
     @Order(1)
     @Test
-    void testEmpty(){
+    void testEmpty() {
         assertEquals(0, stack.size());
+        assertTrue(stack.isEmpty());
     }
 
     @Order(2)
     @Test
-    void testBefuellen(){
+    void testBefuellen() {
         stack.push(1);
         stack.push(2);
+        assertEquals(2,stack.size());
         stack.push(3);
         stack.push(4);
         assertEquals(4, stack.size());
     }
     @Order(3)
     @Test
-    void testUeberfuellen(){
-        assertThrows(RuntimeException.class, () -> stack.push(5));
+    void testUeberfuellen() {
+        assertThrows(IndexOutOfBoundsException.class, () -> stack.push(5));
         assertEquals(4, stack.size());
     }
 
     @Order(4)
     @Test
-    void testLeeren(){
+    void testLeeren() {
         assertEquals(4, stack.pop());
         assertEquals(3, stack.pop());
         assertEquals(2, stack.size());
